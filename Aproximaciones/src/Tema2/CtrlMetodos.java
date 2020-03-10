@@ -50,7 +50,7 @@ public class CtrlMetodos {
             return null;
         }
     }   
-    /*public tblSecante Secante(double xi1, double xi, double  error, int iteraciones){
+    public tblSecante Secante(double xi1, double xi, double  error, int iteraciones){
        ArrayList<CsSecante> lista = null;
        tblSecante tabla;
        double fxi1;
@@ -86,7 +86,7 @@ public class CtrlMetodos {
             }
          tabla = new tblSecante(lista);
          return tabla;     
-    } */
+    } 
     private double getFxi(double x){
         return (Math.exp(-(x)))-x;
     }
