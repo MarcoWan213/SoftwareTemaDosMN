@@ -1,9 +1,6 @@
 
 package tema2;
-/**
- *
- * @author Eliel Novelo
- */
+
 public class CsSecante {
     int interacion;
     double xi1,xi,fxi1,fxi,n,d,xi1r,error;

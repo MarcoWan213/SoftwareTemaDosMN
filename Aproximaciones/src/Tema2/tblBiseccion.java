@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package tema2;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
-/**
- *
- * @author Eliel Novelo
- */
 public class tblBiseccion extends AbstractTableModel{
     private String[] columnas = {"i","xi","xs","xr","fxi","fxr","producto","Error"};
     private ArrayList<CsBiseccion> lista =null;

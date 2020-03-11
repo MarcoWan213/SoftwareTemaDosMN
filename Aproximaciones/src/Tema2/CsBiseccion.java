@@ -1,10 +1,6 @@
 
 package tema2;
 
-/**
- *
- * @author Eliel Novelo
- */
 public class CsBiseccion {
     int interacion;
     double xi,xs,xr,fxi,fxr,producto,error;
