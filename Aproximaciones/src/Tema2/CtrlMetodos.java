@@ -97,9 +97,10 @@ public class CtrlMetodos {
         return Math.abs((xActual - xAnterior) / xActual);
     }
 
-    public String Newton(double aprox, double errorDeseado, int iteracionDeseada) {
+    public Tema2.tblNewton Newton(double aprox, double errorDeseado, int iteracionDeseada) {
 
         ArrayList<Tema2.CsNewton> lista = null;
+        Tema2.tblNewton tabla;
         int interacion = 0;
         double fi;
         double fix;
@@ -110,23 +111,25 @@ public class CtrlMetodos {
         while (error > errorDeseado && interacion < iteracionDeseada) {
 
             Tema2.CsNewton fila = new CsNewton();
+            fila.setAprox(aprox);
             fila.setFi(this.getfiN(aprox));
             fila.setFix(this.getfipN(aprox));
             fila.setTim(this.gettimN(aprox, fila.getFi(), fila.getFix()));
             fila.setError(this.geterrorN(aprox, fila.getTim()));
-            fila.setInteracion(interacion+1);
-            
+            fila.setInteracion(interacion + 1);
+
             fi = this.getfiN(aprox);
             fix = this.getfipN(aprox);
             tim = this.gettimN(aprox, fi, fix);
             error = this.geterrorN(aprox, tim);
-            
+            aprox = this.gettimN(aprox, fi, fix);
             lista.add(fila);
-            
+
             interacion++;
         }
 
-        return "";
+        tabla = new Tema2.tblNewton(lista);
+        return tabla;
     }
 
     public double getfiN(double aprox) {

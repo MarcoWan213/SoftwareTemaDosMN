@@ -43,6 +43,11 @@ public class JFRPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem3.setText("Newton");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jitmSecante.setText("Secante");
@@ -87,6 +92,11 @@ public class JFRPrincipal extends javax.swing.JFrame {
         //dlgSecante venSec = new dlgSecante(this, true);//enpieza eliel
         //venSec.setVisible(true);
     }//GEN-LAST:event_jitmSecanteActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Tema2.JFRNewton venNe = new Tema2.JFRNewton();
+       venNe.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
