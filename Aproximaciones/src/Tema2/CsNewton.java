@@ -1,5 +1,5 @@
 
-package Tema2;
+package tema2;
 
 
 public class CsNewton {

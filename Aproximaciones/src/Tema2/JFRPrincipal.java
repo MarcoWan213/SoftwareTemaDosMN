@@ -94,7 +94,7 @@ public class JFRPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jitmSecanteActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Tema2.JFRNewton venNe = new Tema2.JFRNewton();
+        tema2.JFRNewton venNe = new tema2.JFRNewton();
        venNe.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 

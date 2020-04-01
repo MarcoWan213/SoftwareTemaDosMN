@@ -1,4 +1,4 @@
-package Tema2;
+package tema2;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
