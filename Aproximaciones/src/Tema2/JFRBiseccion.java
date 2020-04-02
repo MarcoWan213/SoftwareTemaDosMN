@@ -154,6 +154,7 @@ public class JFRBiseccion extends javax.swing.JDialog {
     private void BtnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCalcularActionPerformed
         double xi = Double.parseDouble(this.TxtLi.getText());
         double xs = Double.parseDouble(this.TxtLs.getText());
+        
         double error = Double.parseDouble(this.TxtError.getText());
         int iteracion = Integer.parseInt(this.TxtIteraciones.getText());
         
