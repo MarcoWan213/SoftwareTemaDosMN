@@ -40,9 +40,6 @@ public class ctrlMetodoLineal {
             }
 
             fila.setResultados(X);
-            
-            
-            
 
             boolean detener = true;
             for (int i = 0; i < n && detener; i++) {
@@ -66,37 +63,32 @@ public class ctrlMetodoLineal {
         return tabla;
     }
 
-    public static void main(String[] args) {
-        ctrlMetodoLineal prueba = new ctrlMetodoLineal();
-
-        double[][] x = new double[4][5];
-
-        x[0][0] = 10;
-        x[0][1] = -1;
-        x[0][2] = 2;
-        x[0][3] = 0;
-        x[0][4] = 6;
-
-        x[1][0] = -1;
-        x[1][1] = +11;
-        x[1][2] = -1;
-        x[1][3] = 3;
-        x[1][4] = 25;
-
-        x[2][0] = 2;
-        x[2][1] = -1;
-        x[2][2] = 10;
-        x[2][3] = -1;
-        x[2][4] = -11;
-
-        x[3][0] = 0;
-        x[3][1] = -3;
-        x[3][2] = -1;
-        x[3][3] = 8;
-        x[3][4] = 15;
-
-        prueba.Jacobi(x);
-
+    public tblGauss Gauss(int [][]A, int [] b, int iteraciones)
+    {
+    ArrayList<CsGaussSeidel> lista = null;
+    tblGauss tabla; 
+    int cont = 0;
+   
+    double x1Anterior = 0, x2Anterior = 0, x3Anterior=0;
+    
+    
+    lista = new ArrayList<CsGaussSeidel> ();                        
+            while(cont != iteraciones){
+                CsGaussSeidel fila = new CsGaussSeidel();
+                fila.setIteraciones(cont + 1);
+                fila.setX1(((- A[0][1]*x2Anterior) - (A[0][2] * x3Anterior) + b[0])/A[0][0]);
+                fila.setX2(((-A[1][0]*x1Anterior) - (A[1][2]*x3Anterior) + b[1])/A[1][1]);
+                fila.setX3(((-A[2][0]*x1Anterior)-(A[2][1] * x2Anterior) + b[2])/A[2][2]);
+                
+                x1Anterior = fila.getX1();
+                x2Anterior = fila.getX2();
+                x3Anterior = fila.getX3();
+                
+                lista.add(fila);
+                cont++;
+            }          
+            tabla = new tblGauss(lista);            
+            return tabla;        
     }
 
 }
