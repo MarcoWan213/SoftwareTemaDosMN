@@ -5,67 +5,65 @@ import java.util.Arrays;
 
 public class ctrlMetodoLineal {
 
-    public tblJacobi Jacobi(double[][] ecua, int iteraMaxima, double errorDesea) {
+    public static final int MAX_ITERATIONS = 100;//maximo iteraciones
+    private double[][] M;//matris    
 
+    public tblJacobi Jacobi(double[][] ecua) {
+
+        M = ecua;
         ArrayList<CsJacobi> lista = null;
         tblJacobi tabla;
-        double[][] M;
-        int iteraccion = 0;
-        double error = errorDesea;
-        int n = ecua.length;
-        double[] X = new double[n]; // Approximations
-        double[] P = new double[n]; // Prev
 
+        int iteraccion = 0;
+        int n = M.length;
+        double epsilon = 1e-15;
+
+        double[] X = new double[n];
+        double[] P = new double[n];
         Arrays.fill(X, 0);
         Arrays.fill(P, 0);
 
         lista = new ArrayList<CsJacobi>();
+        CsJacobi fila = new CsJacobi();
 
-        while (true) {
-            CsJacobi fila = new CsJacobi();
+        while (iteraccion < MAX_ITERATIONS) {
+
             for (int i = 0; i < n; i++) {
-                double sum = ecua[i][n]; // b_n
+                double sum = M[i][n];
                 for (int j = 0; j < n; j++) {
                     if (j != i) {
-                        sum -= ecua[i][j] * P[j];
+                        sum -= M[i][j] * P[j];
                     }
                 }
-                X[i] = 1 / ecua[i][i] * sum;
+                X[i] = 1 / M[i][i] * sum;
+
             }
 
             fila.setResultados(X);
             
-            for (int i = 0; i < n; i++) {
-                System.out.print(X[i] + " ");
-
-            }
-            System.out.println("}");
-
+            
             
 
-            iteraccion++;
-            if (iteraccion == 1) {
-                continue;
-            }
+            boolean detener = true;
+            for (int i = 0; i < n && detener; i++) {
+                if (Math.abs(X[i] - P[i]) > epsilon) {
 
-            boolean stop = true;
-            for (int i = 0; i < n && stop; i++) {
-                if (Math.abs(X[i] - P[i]) > error) {
-                    stop = false;
+                    detener = false;
+                    //return tabla;
                 }
             }
 
-            if (stop || iteraccion == iteraMaxima) {
+            if (detener) {
+                //return tabla;
                 break;
             }
 
             P = (double[]) X.clone();
-
-            tabla = new tblJacobi(lista);
-            return tabla;
+            lista.add(fila);
+            iteraccion++;
         }
-
-        return null;
+        tabla = new tblJacobi(lista);
+        return tabla;
     }
 
     public static void main(String[] args) {
@@ -97,7 +95,7 @@ public class ctrlMetodoLineal {
         x[3][3] = 8;
         x[3][4] = 15;
 
-        prueba.Jacobi(x, 50, 1e-15);
+        prueba.Jacobi(x);
 
     }
 

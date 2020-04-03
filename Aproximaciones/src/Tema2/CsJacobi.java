@@ -2,7 +2,6 @@ package tema2;
 
 public class CsJacobi {
 
-    int maxIteracion;
     double[] resultados = new double[4];
 
     public double[] getResultados() {
@@ -13,17 +12,9 @@ public class CsJacobi {
         this.resultados = resultados;
     }
 
-    public int getMaxIteracion() {
-        return maxIteracion;
-    }
-
-    public void setMaxIteracion(int maxIteracion) {
-        this.maxIteracion = maxIteracion;
-    }
-
     @Override
     public String toString() {
-        return "CsJacobi{" + "maxIteracion=" + maxIteracion + ", resultados=" + resultados + '}';
+        return "CsJacobi{" + "resultados=" + resultados + '}';
     }
 
 }

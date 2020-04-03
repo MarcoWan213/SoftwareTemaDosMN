@@ -118,44 +118,64 @@ public class JFRJacobi extends javax.swing.JFrame {
 
         lblR.setText("=");
 
+        X11.setText("10");
         X11.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X12.setText("-1");
         X12.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X13.setText("2");
         X13.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X14.setText("0");
         X14.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X15.setText("6");
         X15.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X21.setText("-1");
         X21.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X22.setText("11");
         X22.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X23.setText("-1");
         X23.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X24.setText("3");
         X24.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X25.setText("25");
         X25.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X31.setText("2");
         X31.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X32.setText("-1");
         X32.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X33.setText("10");
         X33.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X34.setText("-1");
         X34.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X35.setText("-11");
         X35.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X41.setText("0");
         X41.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X42.setText("-3");
         X42.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X43.setText("-1");
         X43.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X44.setText("8");
         X44.setPreferredSize(new java.awt.Dimension(60, 20));
 
+        X45.setText("15");
         X45.setPreferredSize(new java.awt.Dimension(60, 20));
 
         btnCalcular.setText("Calcular");
@@ -180,8 +200,19 @@ public class JFRJacobi extends javax.swing.JFrame {
 
         jLabel2.setText("Error deseado");
 
+        txtError.setEditable(false);
+        txtError.setText("0.001");
+
         jLabel3.setText("Iteracion deseada");
         jLabel3.setToolTipText("");
+
+        txtIteracion.setEditable(false);
+        txtIteracion.setText("50");
+        txtIteracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIteracionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -358,17 +389,18 @@ public class JFRJacobi extends javax.swing.JFrame {
         ecuacion[3][1] = Double.parseDouble(this.X42.getText());
         ecuacion[3][2] = Double.parseDouble(this.X43.getText());
         ecuacion[3][3] = Double.parseDouble(this.X44.getText());
-        ecuacion[3][4] = Double.parseDouble(this.X45.getText());
-                       
-        double error = Double.parseDouble(this.txtError.getText());
-        int iteracion = Integer.parseInt(this.txtIteracion.getText());
+        ecuacion[3][4] = Double.parseDouble(this.X45.getText());                       
 
         ctrlMetodoLineal obj = new ctrlMetodoLineal();
-        tblJacobi resultante = obj.Jacobi(ecuacion, iteracion, error);
+        tblJacobi resultante = obj.Jacobi(ecuacion);
         this.jTable3.setModel(resultante);
 
 
     }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void txtIteracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIteracionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIteracionActionPerformed
 
     /**
      * @param args the command line arguments
